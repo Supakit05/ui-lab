@@ -107,8 +107,7 @@
          recommendedTool = tool
        })
 
-     cy.get('#recommendations')
-       .screenshot('qp01-step4-pizza')
+     cy.screenshot('qp01-step4-recommendation')
 
      // Step 5: rate without logging in
      cy.get('button[name="rate-5"]')
