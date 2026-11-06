@@ -43,3 +43,26 @@ Pizza Name: Lab Pizza 20261106-190240
 | 7 | Pizza name found in admin list with Pizza cutter | Pass |
 
 Overall Result: PASS (7/7)
+
+## Step 3.8: Evidence from Two Full Runs
+
+**Tool:** Robot Framework  
+**Test Case:** QP-01 A Custom Pizza Reaches The Admin List  
+**Browser:** Headless Chrome
+
+### Run 1
+- Result: PASS
+- Tests: 1 passed, 0 failed
+- Elapsed Time: 9.515 seconds
+- Pizza Name: [Copy from Run 1 log]
+- Evidence: `robot/results/run1/`
+
+### Run 2
+- Result: PASS
+- Tests: 1 passed, 0 failed
+- Elapsed Time: [Copy from Run 2 report]
+- Pizza Name: [Copy from Run 2 log]
+- Evidence: `robot/results/run2/`
+
+### Conclusion
+Both full runs of QP-01 passed successfully using Headless Chrome. The automated test verified the advanced fields, pizza restrictions, login requirement, and the pizza entry in the admin list.
