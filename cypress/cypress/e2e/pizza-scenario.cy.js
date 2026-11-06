@@ -50,8 +50,7 @@
        .type('600')
        .should('have.value', '600')
 
-     cy.get('select')
-       .select('Knife')
+     cy.get('select').select('Knife')
 
      cy.contains('option', 'Knife')
        .should('be.selected')
@@ -83,9 +82,9 @@
      cy.get('#recommendations')
        .invoke('text')
        .then((text) => {
-        const tool = text
-            .match(/Tool:\s*(.*?)\s*Calories per slice:/)?.[1]
-            ?.trim()
+         const tool = text
+           .match(/Tool:\s*(.*?)\s*Calories per slice:/)?.[1]
+           ?.trim()
 
          const caloriesText = text
            .match(/Calories per slice:\s*(\d+)/)?.[1]
@@ -120,25 +119,14 @@
 
      cy.screenshot('qp01-step5-login-needed')
 
+     // Step 6: log in on the admin page
+     cy.adminLogin('admin', 'admin')
 
-    // Step 6: log in as admin
-    cy.visit('https://quickpizza.grafana.com/admin')
+     cy.contains('Latest pizza recommendations', {
+       timeout: 20000,
+     }).should('be.visible')
 
-    cy.get('#username', { timeout: 20000 })
-      .should('be.visible')
-      .clear()
-      .type('admin')
-      .should('have.value', 'admin')
-
-    cy.get('#password')
-      .clear()
-      .type('admin')
-
-    cy.get('button[type="submit"]')
-      .click()
-
-    cy.screenshot('qp01-step6-after-login')
-
+     cy.screenshot('qp01-step6-after-login')
 
      // Step 7: verify the pizza in the admin list
      cy.contains('li', pizzaName, {
